@@ -14,18 +14,18 @@ The workflow is organized into four connected stages. Dataset construction can s
 
 | Module | General role | Bi₂Te₃ case study in this repository |
 |---|---|---|
-| **Dataset construction** | Build structured carrier-mobility datasets from curated records and user-specified literature | Assemble and extend the Bi₂Te₃-based mobility dataset |
+| **Dataset construction** | Build structured carrier mobility datasets from curated records and user-specified literature | Assemble and extend the Bi₂Te₃-based carrier mobility dataset |
 | **Feature engineering** | Convert composition and experimental conditions into machine-learning descriptors | Generate elemental/statistical descriptors for Bi₂Te₃-based samples |
-| **Active learning** | Iteratively identify informative features and high-value samples/candidates | Learn from the Bi₂Te₃ mobility dataset using LightGBM, GPR, and Expected Improvement |
+| **Active learning** | Iteratively identify informative features and high-value samples/candidates | Learn from the Bi₂Te₃ carrier mobility dataset using LightGBM, GPR, and Expected Improvement |
 | **Candidate screening** | Rank unexplored compositions or modifications for follow-up | Prioritize candidate dopants/compositions for the Bi₂Te₃ demonstration |
 
 ## Bi₂Te₃ case study
 
 <p align="center">
-  <img src="assets/project_overview.png" alt="Bi2Te3 case study: literature-driven dataset construction, active learning, and carrier-mobility screening" width="920">
+  <img src="assets/project_overview.png" alt="Bi2Te3 case study: literature-driven dataset construction, active learning, and carrier mobility screening" width="920">
 </p>
 
-The figure above illustrates the application implemented in the accompanying study. In this case, literature-derived carrier-mobility data are organized into a structured dataset, elemental and condition descriptors are constructed, active learning is used to refine the model and candidate space, and promising dopant directions are evaluated for Bi₂Te₃-based materials.
+The figure above illustrates the application implemented in the accompanying study. In this case, literature-derived carrier mobility data are organized into a structured dataset, elemental and condition descriptors are constructed, active learning is used to refine the model and candidate space, and promising dopant directions are evaluated for Bi₂Te₃-based materials.
 
 The **general workflow** and the **materials-specific configuration** are intentionally separated. The same pipeline can be adapted to another material family by replacing the input dataset/literature set and, where needed, updating the extraction schema, host-element definition, descriptors, and candidate space.
 
@@ -33,7 +33,7 @@ The **general workflow** and the **materials-specific configuration** are intent
 
 ### 1. Dataset construction
 
-A structured carrier-mobility dataset provides the common interface between literature/data ingestion and downstream machine learning. In the included case study, this dataset is `data/Electricity_complete.csv`.
+A structured carrier mobility dataset provides the common interface between literature/data ingestion and downstream machine learning. In the included case study, this dataset is `data/Electricity_complete.csv`.
 
 The repository supports two data sources within the same module:
 
@@ -76,7 +76,7 @@ For another host system, the candidate pool and `host_elements` setting can be c
 ├── assets/
 │   └── project_overview.png          # Bi2Te3 case-study figure
 ├── data/
-│   ├── Electricity_complete.csv      # case-study carrier-mobility dataset
+│   ├── Electricity_complete.csv      # case-study carrier mobility dataset
 │   ├── FVectors_MMS.csv              # precomputed case-study features
 │   ├── N_type_carrier.csv            # target values
 │   ├── candidate.csv                  # case-study candidate pool
@@ -165,7 +165,7 @@ Detailed input formats and extension points are documented in [`literature/AGENT
 
 The repository ships with Bi₂Te₃-oriented data and defaults because that is the demonstrated application. To use the workflow for another material family, the main changes are configuration/data changes rather than a rewrite of the pipeline:
 
-1. provide a carrier-mobility dataset using the required project fields, or define the corresponding schema mapping;
+1. provide a carrier mobility dataset using the required project fields, or define the corresponding schema mapping;
 2. copy `literature/extraction_schema.template.json` and set material filters/aliases for the new system;
 3. provide literature for that material family if using the literature Agent;
 4. construct descriptors and a candidate pool appropriate to the new chemistry;
