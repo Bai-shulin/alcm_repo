@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "target_description": "Carrier mobility in a user-defined material system",
+  "output_units": {
+    "temperature": "K",
+    "N_type_carrier": "cm2 V-1 s-1"
+  },
+  "column_aliases": {
+    "Crystal_structure": [
+      "chemical formula",
+      "composition",
+      "compound",
+      "material",
+      "sample"
+    ],
+    "temperature": [
+      "temperature (k)",
+      "temperature",
+      "temp. (k)",
+      "t (k)"
+    ],
+    "N_type_carrier": [
+      "hall mobility",
+      "electron mobility",
+      "carrier mobility",
+      "mobility",
+      "μh",
+      "mu_h",
+      "mu"
+    ],
+    "Crystal_form": [
+      "crystal form",
+      "sample form",
+      "morphology"
+    ],
+    "Direction": [
+      "measurement direction",
+      "direction",
+      "orientation"
+    ]
+  },
+  "categorical_mappings": {
+    "Crystal_form": {
+      "enabled": false,
+      "reason": "The meaning of 0/1 is not documented in the current repository and must be confirmed by the dataset owner.",
+      "default": "",
+      "values": {
+        "polycrystalline": 0,
+        "polycrystal": 0,
+        "single crystal": 1,
+        "single-crystalline": 1,
+        "thin film": 1
+      }
+    },
+    "Direction": {
+      "enabled": false,
+      "reason": "The meanings of direction codes 0/1/2 must be confirmed by the dataset owner.",
+      "default": "",
+      "values": {
+        "unspecified": 0,
+        "parallel to pressing direction": 1,
+        "perpendicular to pressing direction": 2,
+        "in-plane": 1,
+        "cross-plane": 2
+      }
+    }
+  },
+  "validation": {
+    "required_elements": [],
+    "temperature_K": [
+      1,
+      2000
+    ],
+    "mobility_cm2_Vs": [
+      0,
+      10000
+    ],
+    "Crystal_form": [
+      0,
+      1
+    ],
+    "Direction": [
+      0,
+      1,
+      2
+    ]
+  },
+  "case_study": "",
+  "scope_note": "Template for adapting literature extraction to another material family. Set required_elements only when host-chemistry filtering is desired."
+}
