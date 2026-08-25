@@ -8,24 +8,24 @@ The methodological workflow is designed to be **extensible across material syste
 
 **dataset construction → feature engineering → active learning → candidate screening**
 
-The workflow is organized into four connected stages. Dataset construction can start from curated records or user-specified literature; when literature is used, the Agent reads the supplied papers, identifies sample- and condition-level mobility data, and converts them into structured records for downstream modeling. Feature engineering, iterative model refinement, acquisition, and candidate ranking form the subsequent stages.
+The workflow is organized into four connected stages. Dataset construction can start from curated records or user-specified literature; when literature is used, the Agent reads the supplied papers, identifies sample- and condition-level carrier mobility data, and converts them into structured records for downstream modeling. Feature engineering, iterative model refinement, acquisition, and candidate ranking form the subsequent stages.
 
 ## Framework at a glance
 
 | Module | General role | Bi₂Te₃ case study in this repository |
 |---|---|---|
-| **Dataset construction** | Build structured carrier-mobility datasets from curated records and user-specified literature | Assemble and extend the Bi₂Te₃-based mobility dataset |
+| **Dataset construction** | Build structured carrier mobility datasets from curated records and user-specified literature | Assemble and extend the Bi₂Te₃-based carrier mobility dataset |
 | **Feature engineering** | Convert composition and experimental conditions into machine-learning descriptors | Generate elemental/statistical descriptors for Bi₂Te₃-based samples |
-| **Active learning** | Iteratively identify informative features and high-value samples/candidates | Learn from the Bi₂Te₃ mobility dataset using LightGBM, GPR, and Expected Improvement |
+| **Active learning** | Iteratively identify informative features and high-value samples/candidates | Learn from the Bi₂Te₃ carrier mobility dataset using LightGBM, GPR, and Expected Improvement |
 | **Candidate screening** | Rank unexplored compositions or modifications for follow-up | Prioritize candidate dopants/compositions for the Bi₂Te₃ demonstration |
 
 ## Bi₂Te₃ case study
 
 <p align="center">
-  <img src="assets/project_overview.png" alt="Bi2Te3 case study: literature-driven dataset construction, active learning, and carrier-mobility screening" width="920">
+  <img src="assets/project_overview.png" alt="Bi2Te3 case study: literature-driven dataset construction, active learning, and carrier mobility screening" width="920">
 </p>
 
-The figure above illustrates the application implemented in the accompanying study. In this case, literature-derived carrier-mobility data are organized into a structured dataset, elemental and condition descriptors are constructed, active learning is used to refine the model and candidate space, and promising dopant directions are evaluated for Bi₂Te₃-based materials.
+The figure above illustrates the application implemented in the accompanying study. In this case, literature-derived carrier mobility data are organized into a structured dataset, elemental and condition descriptors are constructed, active learning is used to refine the model and candidate space, and promising dopant directions are evaluated for Bi₂Te₃-based materials.
 
 The **general workflow** and the **materials-specific configuration** are intentionally separated. The same pipeline can be adapted to another material family by replacing the input dataset/literature set and, where needed, updating the extraction schema, host-element definition, descriptors, and candidate space.
 
@@ -33,14 +33,14 @@ The **general workflow** and the **materials-specific configuration** are intent
 
 ### 1. Dataset construction
 
-A structured carrier-mobility dataset provides the common interface between literature/data ingestion and downstream machine learning. In the included case study, this dataset is `data/Electricity_complete.csv`.
+A structured carrier mobility dataset provides the common interface between literature/data ingestion and downstream machine learning. In the included case study, this dataset is `data/Electricity_complete.csv`.
 
 The repository supports two data sources within the same module:
 
 - curated or previously assembled structured records;
 - records extracted from scientific papers explicitly supplied by the user.
 
-For literature-derived data, the Agent can ingest local PDF/HTML files, direct URLs, DOI identifiers, or JSON/CSV/TXT manifests. It reads text and tables, identifies carrier-mobility measurements, extracts sample- and condition-level records, maps them to the configured dataset schema, and stores provenance separately.
+For literature-derived data, the Agent can ingest local PDF/HTML files, direct URLs, DOI identifiers, or JSON/CSV/TXT manifests. It reads text and tables, identifies carrier mobility measurements, extracts sample- and condition-level records, maps them to the configured dataset schema, and stores provenance separately.
 
 A single paper may generate multiple rows corresponding to different compositions, temperatures, carrier concentrations, crystal forms, or measurement directions. Literature discovery is outside this module: the Agent processes the literature set provided to it.
 
@@ -76,7 +76,7 @@ For another host system, the candidate pool and `host_elements` setting can be c
 ├── assets/
 │   └── project_overview.png          # Bi2Te3 case-study figure
 ├── data/
-│   ├── Electricity_complete.csv      # case-study carrier-mobility dataset
+│   ├── Electricity_complete.csv      # case-study carrier mobility dataset
 │   ├── FVectors_MMS.csv              # precomputed case-study features
 │   ├── N_type_carrier.csv            # target values
 │   ├── candidate.csv                  # case-study candidate pool
