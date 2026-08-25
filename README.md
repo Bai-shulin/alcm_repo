@@ -2,7 +2,7 @@
 
 # AI-Guided Dataset Construction and Active Learning for Carrier Mobility
 
-This repository provides a modular workflow for **carrier-mobility data construction, feature engineering, active learning, and candidate screening** in materials research.
+This repository provides a modular workflow for **carrier mobility data construction, feature engineering, active learning, and candidate screening** in materials research.
 
 The methodological workflow is designed to be **extensible across material systems**. The current repository uses **Bi₂Te₃-based thermoelectric materials as a case study** to demonstrate the complete pipeline, rather than restricting the framework to Bi₂Te₃ itself.
 
