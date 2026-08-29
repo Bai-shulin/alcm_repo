@@ -210,7 +210,7 @@ See [`CONTRIBUTORS.md`](CONTRIBUTORS.md) for contributor information.
 
 ## Citation
 
-If you use this code or the included dataset, please cite the associated research work. Citation metadata will be updated in this repository when the corresponding publication information is available.
+If you use this code or the included dataset, please cite the associated research work.
 
 ## License
 
